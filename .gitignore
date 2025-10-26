@@ -1,0 +1,68 @@
+# --------------------------
+# Android / Kotlin
+# --------------------------
+*.iml
+.gradle/
+.local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+/output.json
+/app/build/
+*.apk
+*.aab
+*.keystore
+
+# Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+
+# --------------------------
+# Spring Boot / Java / Kotlin
+# --------------------------
+target/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+
+# Gradle (if backend uses Gradle)
+.gradle/
+build/
+
+# --------------------------
+# System / OS files
+# --------------------------
+Thumbs.db
+.DS_Store
+ehthumbs.db
+*.swp
+*.tmp
+*.bak
+
+# --------------------------
+# IntelliJ / VSCode / Other IDEs
+# --------------------------
+.idea/
+.vscode/
+*.iws
+*.ipr
+
+# --------------------------
+# Environment / Sensitive files
+# --------------------------
+*.env
+.env
+application.yml
+application.properties
