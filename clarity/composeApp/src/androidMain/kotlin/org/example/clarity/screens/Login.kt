@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -16,6 +18,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,53 +34,67 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import org.example.clarity.utils.BackgroundColor
+import org.example.clarity.utils.ButtonTextColor
+import org.example.clarity.utils.DangerColor
+import org.example.clarity.utils.OnPrimaryColor
+import org.example.clarity.utils.PrimaryButtonColor
+import org.example.clarity.utils.PrimaryFontColor
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
-    Box(
+    Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFF2F2F2F))
-            .padding(24.dp),
-        contentAlignment = Alignment.Center
     ) {
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.55f)      // 70% of Box height
+                .background(BackgroundColor)
+        ) {}
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
         ) {
             Text(
-                text = "Welcome Back 👋",
+                text = "Login",
                 style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
                 textAlign = TextAlign.Center,
-                color = Color.White
+                color = PrimaryFontColor
             )
 
 
-            Spacer(modifier = Modifier.height(32.dp))
+//            Spacer(modifier = Modifier.height(20.dp))
 
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text("Email",color = Color.White) },
+                label = { Text("Email", color = OnPrimaryColor) },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                modifier = Modifier.fillMaxWidth()
+                modifier = modifier
+                    .fillMaxWidth()
             )
+
 
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password",color = Color.White) },
+                label = { Text("Password", color = OnPrimaryColor) },
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                modifier = Modifier.fillMaxWidth()
+                modifier = modifier.fillMaxWidth(),
+
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -84,22 +102,25 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             Button(
                 onClick = { /* handle login click */ },
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .width(100.dp)
                     .height(50.dp),
                 shape = MaterialTheme.shapes.medium,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFF8F9FA),
-                    contentColor = Color.Black
-                )
+                    containerColor = PrimaryButtonColor,
+
+                    )
             ) {
-                Text("Login")
+                Text("Login", color = ButtonTextColor)
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             TextButton(onClick = { /* navigate to signup */ }) {
-                Text("Don't have an account? Sign up",
-                    color = Color.White)
+                Text(
+                    "Don't have an account? Sign up",
+                    fontSize = 15.sp,
+                    color = DangerColor
+                )
             }
         }
     }

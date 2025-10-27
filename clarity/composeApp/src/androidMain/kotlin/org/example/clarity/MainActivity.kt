@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import org.example.clarity.screens.LoginScreen
 import org.example.clarity.screens.LoginScreenPreview
+import org.example.clarity.screens.RegisterScreenPreview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             LoginScreenPreview()
+//            RegisterScreenPreview()
         }
     }
 }
