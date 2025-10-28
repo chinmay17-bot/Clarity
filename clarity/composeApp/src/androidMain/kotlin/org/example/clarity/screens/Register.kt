@@ -42,6 +42,7 @@ import org.example.clarity.utils.PrimaryFontColor
 fun RegisterScreen(modifier: Modifier = Modifier) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
 
     Column(
         modifier = modifier
@@ -51,16 +52,17 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.55f)
+                .fillMaxHeight(0.50f)
                 .background(BackgroundColor)
         ) {}
 
         // Content Section
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier
                 .fillMaxWidth()
+                .fillMaxHeight()
                 .padding(20.dp)
         ) {
             Text(
@@ -70,8 +72,15 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 color = PrimaryFontColor
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
-
+//            Spacer(modifier = Modifier.height(20.dp))
+            OutlinedTextField(
+                value = username,
+                onValueChange = { username = it },
+                label = { Text("Username", color = OnPrimaryColor) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                modifier = Modifier.fillMaxWidth()
+            )
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
@@ -81,7 +90,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+//            Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
                 value = password,
@@ -93,7 +102,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+//            Spacer(modifier = Modifier.height(24.dp))
 
             Button(
                 onClick = { /* handle register click */ },
@@ -108,7 +117,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 Text("Register", color = ButtonTextColor)
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+//            Spacer(modifier = Modifier.height(16.dp))
 
             TextButton(onClick = { /* navigate back to login */ }) {
                 Text(
