@@ -5,5 +5,6 @@ import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface NoteRepository : MongoRepository<Note, ObjectId> {
-
+//    notes and fetched by owner id to display all notes belonging to a user
+    fun findAllByOwnerId(ownerId: ObjectId): List<Note>
 }
