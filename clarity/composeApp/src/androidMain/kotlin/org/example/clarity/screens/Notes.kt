@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.example.clarity.components.NoteComponent
 import org.example.clarity.utils.BackgroundColor
 
 @Composable
@@ -36,12 +37,7 @@ fun NotesScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(list.size) { index ->
-                    Text(
-                        text = list[index],
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                    )
+                    NoteComponent(title="title $index", content="content $index" )
                 }
             }
         }
