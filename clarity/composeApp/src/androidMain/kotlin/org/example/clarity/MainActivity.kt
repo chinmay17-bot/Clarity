@@ -14,7 +14,7 @@ import org.example.clarity.screens.RegisterScreenPreview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         setContent {
