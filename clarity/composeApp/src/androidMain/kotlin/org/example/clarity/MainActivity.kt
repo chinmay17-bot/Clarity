@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import org.example.clarity.screens.LoginScreen
 import org.example.clarity.screens.LoginScreenPreview
+import org.example.clarity.screens.NotesScreen
 import org.example.clarity.screens.RegisterScreenPreview
 
 class MainActivity : ComponentActivity() {
@@ -17,8 +18,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            LoginScreenPreview()
+//            LoginScreenPreview()
 //            RegisterScreenPreview()
+            NotesScreen()
         }
     } 
 }
