@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.example.clarity.components.MainInputField
 import org.example.clarity.utils.BackgroundColor
 import org.example.clarity.utils.ButtonTextColor
 import org.example.clarity.utils.DangerColor
@@ -72,37 +73,31 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 color = PrimaryFontColor
             )
 
-//            Spacer(modifier = Modifier.height(20.dp))
-            OutlinedTextField(
+            MainInputField(
                 value = username,
                 onValueChange = { username = it },
-                label = { Text("Username", color = OnPrimaryColor) },
+                label = "Username",
+                keyBoardType = KeyboardType.Text,
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth()
             )
-            OutlinedTextField(
+            MainInputField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text("Email", color = OnPrimaryColor) },
+                label = "Email",
+                keyBoardType = KeyboardType.Email,
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth()
             )
 
-//            Spacer(modifier = Modifier.height(16.dp))
-
-            OutlinedTextField(
+            MainInputField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password", color = OnPrimaryColor) },
+                label = "Password",
+                keyBoardType = KeyboardType.Password,
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth()
             )
-
-//            Spacer(modifier = Modifier.height(24.dp))
 
             Button(
                 onClick = { /* handle register click */ },
@@ -117,7 +112,6 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 Text("Register", color = ButtonTextColor)
             }
 
-//            Spacer(modifier = Modifier.height(16.dp))
 
             TextButton(onClick = { /* navigate back to login */ }) {
                 Text(

@@ -20,5 +20,5 @@ class MainActivity : ComponentActivity() {
             LoginScreenPreview()
 //            RegisterScreenPreview()
         }
-    }
+    } 
 }

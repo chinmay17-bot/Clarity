@@ -16,6 +16,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldColors
@@ -35,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.example.clarity.components.MainInputField
 import org.example.clarity.utils.BackgroundColor
 import org.example.clarity.utils.ButtonTextColor
 import org.example.clarity.utils.DangerColor
@@ -71,30 +73,26 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             )
 
 
-//            Spacer(modifier = Modifier.height(20.dp))
 
-            OutlinedTextField(
+            MainInputField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text("Email", color = OnPrimaryColor) },
+                label = "Email",
+                keyBoardType = KeyboardType.Email,
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                modifier = modifier
-                    .fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
             )
 
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            OutlinedTextField(
+            MainInputField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password", color = OnPrimaryColor) },
+                label = "Password",
+                keyBoardType = KeyboardType.Password,
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                modifier = modifier.fillMaxWidth(),
-
+                modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(24.dp))
