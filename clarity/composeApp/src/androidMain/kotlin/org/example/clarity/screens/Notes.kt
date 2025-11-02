@@ -3,9 +3,11 @@ package org.example.clarity.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,14 +24,20 @@ fun NotesScreen(modifier: Modifier = Modifier) {
     val list = List(100) { "Item #$it" }
     Column {
         Row {
-            Text("Heading", modifier = Modifier.padding(16.dp).statusBarsPadding())
+            Text(
+                "Heading",
+                modifier = Modifier
+                    .padding(16.dp)
+                    .statusBarsPadding()
+                    .padding(vertical = 10.dp)
+            )
         }
         Row(
             modifier = modifier.fillMaxSize()
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(0.1f)
+                    .fillMaxWidth(0.05f)
                     .fillMaxHeight()
                     .background(color = BackgroundColor)
             ) {}
@@ -37,7 +45,8 @@ fun NotesScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(list.size) { index ->
-                    NoteComponent(title="title $index", content="content $index" )
+                    NoteComponent(title = "title $index", content = "content $index")
+                    Spacer(modifier = modifier.height(10.dp))
                 }
             }
         }
