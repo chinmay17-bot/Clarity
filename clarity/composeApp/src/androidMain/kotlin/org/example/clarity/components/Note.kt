@@ -2,11 +2,13 @@ package org.example.clarity.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -17,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import org.example.clarity.utils.ButtonTextColor
 import org.example.clarity.utils.DangerColor
 import org.example.clarity.utils.OnSecondaryColor
+import org.example.clarity.utils.SafeColor
 
 @Composable
 fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String) {
@@ -32,10 +35,18 @@ fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String)
 
         Text("Title: $title")
         Text("Content: $content")
-        Icon(
-            imageVector = androidx.compose.material.icons.Icons.Default.Delete,
-            contentDescription = "Delete",
-            tint = DangerColor
-        )
+        Row {
+            Icon(
+                imageVector = androidx.compose.material.icons.Icons.Default.Delete,
+                contentDescription = "Delete",
+                tint = DangerColor
+            )
+            Icon(
+                imageVector = androidx.compose.material.icons.Icons.Default.Create,
+                contentDescription = "Delete",
+                tint = SafeColor
+            )
+        }
+
     }
 }
