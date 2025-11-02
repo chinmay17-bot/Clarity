@@ -16,41 +16,53 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.example.clarity.components.NoteComponent
 import org.example.clarity.utils.BackgroundColor
 
 @Composable
 fun NotesScreen(modifier: Modifier = Modifier) {
     val list = List(100) { "Item #$it" }
-    Column {
-        Row {
+
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .statusBarsPadding()
+                .background(BackgroundColor)
+                .padding(vertical = 30.dp, horizontal = 16.dp)
+        ) {
             Text(
-                "Heading",
-                modifier = Modifier
-                    .padding(16.dp)
-                    .statusBarsPadding()
-                    .padding(vertical = 10.dp)
+                text = "Your Notes",
+                fontSize = 14.sp
             )
         }
+
         Row(
             modifier = modifier.fillMaxSize()
         ) {
+            // Sidebar
             Column(
                 modifier = Modifier
                     .fillMaxWidth(0.05f)
                     .fillMaxHeight()
                     .background(color = BackgroundColor)
             ) {}
+
+            // Notes list
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(list.size) { index ->
-                    NoteComponent(title = "title $index", content = "content $index")
-                    Spacer(modifier = modifier.height(10.dp))
+                    NoteComponent(
+                        title = "title $index",
+                        content = "content $index"
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
                 }
             }
         }
     }
-
-
 }
