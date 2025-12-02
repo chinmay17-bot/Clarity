@@ -14,15 +14,23 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.example.clarity.components.NoteComponent
 import org.example.clarity.utils.BackgroundColor
-
+import org.example.clarity.components.AlertBox
 @Composable
 fun NotesScreen(modifier: Modifier = Modifier) {
     val list = List(100) { "Item #$it" }
+
+    //alert box content
+    var dialogState by remember { mutableStateOf<DialogState?>(null) }
+
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -40,6 +48,7 @@ fun NotesScreen(modifier: Modifier = Modifier) {
             )
         }
 
+
         Row(
             modifier = modifier.fillMaxSize()
         ) {
@@ -56,12 +65,33 @@ fun NotesScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 items(list.size) { index ->
+                    val note= list[index]
                     NoteComponent(
                         title = "title $index",
-                        content = "content $index"
+                        content = "content $index",
+                        //dialog state trigger for testing
+                        onEdit = {
+                            dialogState = DialogState.Edit(note)
+                        },
+                        onDelete = {
+                            dialogState = DialogState.Delete(note)
+                        }
                     )
                     Spacer(modifier = Modifier.height(5.dp))
                 }
+            }
+            dialogState?.let{
+                state ->
+                AlertBox(
+                    state = state,
+                    onDismissRequest = { dialogState = null },
+                    onConfirmationRequest = { dialogState = null },
+                    onCancelRequest = { dialogState = null },
+                    noteId = when(state){
+                        is DialogState.Delete -> state.noteId
+                        is DialogState.Edit -> state.noteId
+                    }
+                ) 
             }
         }
     }

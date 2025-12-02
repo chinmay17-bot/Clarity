@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +23,7 @@ import org.example.clarity.utils.OnSecondaryColor
 import org.example.clarity.utils.SafeColor
 
 @Composable
-fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String) {
+fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String,onEdit: () -> Unit, onDelete: () -> Unit) {
     // Implementation of the Note component goes here
     Row(
         modifier = modifier
@@ -36,16 +37,30 @@ fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String)
         Text("Title: $title")
         Text("Content: $content")
         Row {
-            Icon(
-                imageVector = androidx.compose.material.icons.Icons.Default.Delete,
-                contentDescription = "Delete",
-                tint = DangerColor
-            )
-            Icon(
-                imageVector = androidx.compose.material.icons.Icons.Default.Create,
-                contentDescription = "Delete",
-                tint = SafeColor
-            )
+            IconButton(
+                onClick = {
+                    //edit note action
+                    onEdit()
+                }
+            ) {
+                Icon(
+                    imageVector = androidx.compose.material.icons.Icons.Default.Create,
+                    contentDescription = "Edit",
+                    tint = SafeColor
+                )
+            }
+            IconButton(
+                onClick = {
+                    //delete note action
+                    onDelete()
+                }
+            ) {
+                Icon(
+                    imageVector = androidx.compose.material.icons.Icons.Default.Delete,
+                    contentDescription = "Delete",
+                    tint = DangerColor
+                )
+            }
         }
 
     }
