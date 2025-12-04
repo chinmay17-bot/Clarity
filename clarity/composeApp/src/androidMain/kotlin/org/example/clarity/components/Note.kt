@@ -17,17 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.example.clarity.utils.ButtonTextColor
-import org.example.clarity.utils.DangerColor
-import org.example.clarity.utils.OnSecondaryColor
-import org.example.clarity.utils.SafeColor
 
 @Composable
 fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String,onEdit: () -> Unit, onDelete: () -> Unit) {
     // Implementation of the Note component goes here
     Row(
         modifier = modifier
-            .background(ButtonTextColor)
             .padding(20.dp)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
@@ -46,7 +41,6 @@ fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String,
                 Icon(
                     imageVector = androidx.compose.material.icons.Icons.Default.Create,
                     contentDescription = "Edit",
-                    tint = SafeColor
                 )
             }
             IconButton(
@@ -58,7 +52,6 @@ fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String,
                 Icon(
                     imageVector = androidx.compose.material.icons.Icons.Default.Delete,
                     contentDescription = "Delete",
-                    tint = DangerColor
                 )
             }
         }

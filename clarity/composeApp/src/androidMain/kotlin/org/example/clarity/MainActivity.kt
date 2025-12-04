@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
 
         setContent {
 //            LoginScreenPreview()
-//            RegisterScreenPreview()
-            NotesScreen()
+            RegisterScreenPreview()
+//            NotesScreen()
         }
     } 
 }

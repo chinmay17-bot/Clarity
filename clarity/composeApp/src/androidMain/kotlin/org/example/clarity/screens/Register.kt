@@ -32,12 +32,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.example.clarity.components.MainInputField
-import org.example.clarity.utils.BackgroundColor
-import org.example.clarity.utils.ButtonTextColor
-import org.example.clarity.utils.DangerColor
-import org.example.clarity.utils.OnPrimaryColor
-import org.example.clarity.utils.PrimaryButtonColor
-import org.example.clarity.utils.PrimaryFontColor
 
 @Composable
 fun RegisterScreen(modifier: Modifier = Modifier) {
@@ -54,7 +48,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             modifier = modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.50f)
-                .background(BackgroundColor)
+
         ) {}
 
         // Content Section
@@ -70,7 +64,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 text = "Register",
                 style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
                 textAlign = TextAlign.Center,
-                color = PrimaryFontColor
+
             )
 
             MainInputField(
@@ -104,12 +98,9 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .width(120.dp)
                     .height(50.dp),
-                shape = MaterialTheme.shapes.medium,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = PrimaryButtonColor,
-                )
+                shape = MaterialTheme.shapes.medium
             ) {
-                Text("Register", color = ButtonTextColor)
+                Text("Register")
             }
 
 
@@ -117,7 +108,6 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 Text(
                     "Already have an account? Login",
                     fontSize = 15.sp,
-                    color = DangerColor
                 )
             }
         }

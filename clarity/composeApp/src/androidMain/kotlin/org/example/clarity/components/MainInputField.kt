@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
-import org.example.clarity.utils.OnPrimaryColor
 
 @Composable
 fun MainInputField(
@@ -25,7 +24,7 @@ fun MainInputField(
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(label, color = OnPrimaryColor) },
+        label = { Text(label) },
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = keyBoardType),
         modifier = Modifier.fillMaxWidth()

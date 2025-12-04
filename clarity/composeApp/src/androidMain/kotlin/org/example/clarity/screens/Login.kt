@@ -37,12 +37,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.example.clarity.components.MainInputField
-import org.example.clarity.utils.BackgroundColor
-import org.example.clarity.utils.ButtonTextColor
-import org.example.clarity.utils.DangerColor
-import org.example.clarity.utils.OnPrimaryColor
-import org.example.clarity.utils.PrimaryButtonColor
-import org.example.clarity.utils.PrimaryFontColor
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
@@ -56,7 +50,6 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             modifier = modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.55f)      // 70% of Box height
-                .background(BackgroundColor)
         ) {}
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -68,8 +61,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             Text(
                 text = "Login",
                 style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-                textAlign = TextAlign.Center,
-                color = PrimaryFontColor
+                textAlign = TextAlign.Center
             )
 
 
@@ -102,13 +94,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .width(100.dp)
                     .height(50.dp),
-                shape = MaterialTheme.shapes.medium,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = PrimaryButtonColor,
-
-                    )
+                shape = MaterialTheme.shapes.medium
             ) {
-                Text("Login", color = ButtonTextColor)
+                Text("Login")
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -116,8 +104,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             TextButton(onClick = { /* navigate to signup */ }) {
                 Text(
                     "Don't have an account? Sign up",
-                    fontSize = 15.sp,
-                    color = DangerColor
+                    fontSize = 15.sp
                 )
             }
         }

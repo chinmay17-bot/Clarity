@@ -39,7 +39,6 @@ fun NotesScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .background(BackgroundColor)
                 .padding(vertical = 30.dp, horizontal = 16.dp)
         ) {
             Text(
@@ -57,7 +56,6 @@ fun NotesScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth(0.05f)
                     .fillMaxHeight()
-                    .background(color = BackgroundColor)
             ) {}
 
             // Notes list
