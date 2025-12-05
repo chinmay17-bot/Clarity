@@ -4,13 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import org.example.clarity.screens.LoginScreen
-import org.example.clarity.screens.LoginScreenPreview
 import org.example.clarity.screens.NotesScreen
-import org.example.clarity.screens.RegisterScreenPreview
+import org.example.clarity.screens.RegisterScreen
+import org.example.clarity.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +20,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-//            LoginScreenPreview()
-            RegisterScreenPreview()
-//            NotesScreen()
+            AppTheme(darkTheme = true) {
+                Scaffold { paddingValues ->
+//                    RegisterScreen(modifier = Modifier.padding(paddingValues))
+//                    LoginScreen(modifier = Modifier.padding(paddingValues))
+                    NotesScreen(modifier = Modifier.padding(paddingValues))
+                }
+
+            }
+
         }
-    } 
+    }
 }

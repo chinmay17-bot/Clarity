@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,11 +40,11 @@ fun NotesScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .padding(vertical = 30.dp, horizontal = 16.dp)
+                .padding(vertical = 12.dp, horizontal = 16.dp)
         ) {
             Text(
                 text = "Your Notes",
-                fontSize = 14.sp
+                fontSize = 25.sp
             )
         }
 
@@ -51,16 +52,11 @@ fun NotesScreen(modifier: Modifier = Modifier) {
         Row(
             modifier = modifier.fillMaxSize()
         ) {
-            // Sidebar
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth(0.05f)
-                    .fillMaxHeight()
-            ) {}
 
             // Notes list
             LazyColumn(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 items(list.size) { index ->
                     val note= list[index]

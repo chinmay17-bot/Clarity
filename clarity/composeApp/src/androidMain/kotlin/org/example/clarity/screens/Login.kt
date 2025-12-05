@@ -110,9 +110,3 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
-@Preview
-@Composable
-fun LoginScreenPreview() {
-    LoginScreen()
-}
