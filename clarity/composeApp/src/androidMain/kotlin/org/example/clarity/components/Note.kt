@@ -59,6 +59,7 @@ fun NoteComponent(modifier: Modifier = Modifier, title: String, content: String,
             ) {
                 Icon(
                     imageVector = androidx.compose.material.icons.Icons.Default.Delete,
+                    tint = MaterialTheme.colorScheme.error,
                     contentDescription = "Delete",
                 )
             }

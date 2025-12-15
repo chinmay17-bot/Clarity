@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
+import org.example.clarity.screens.InputScreen
 import org.example.clarity.screens.LoginScreen
 import org.example.clarity.screens.NotesScreen
 import org.example.clarity.screens.RegisterScreen
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
                 Scaffold { paddingValues ->
 //                    RegisterScreen(modifier = Modifier.padding(paddingValues))
 //                    LoginScreen(modifier = Modifier.padding(paddingValues))
-                    NotesScreen(modifier = Modifier.padding(paddingValues))
+//                    NotesScreen(modifier = Modifier.padding(paddingValues))
+                    InputScreen(modifier = Modifier.padding(paddingValues))
                 }
 
             }

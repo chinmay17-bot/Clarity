@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.sp
 import org.example.clarity.components.NoteComponent
 import org.example.clarity.utils.BackgroundColor
 import org.example.clarity.components.AlertBox
+import org.example.clarity.context.DialogState
+
 @Composable
 fun NotesScreen(modifier: Modifier = Modifier) {
     val list = List(100) { "Item #$it" }
