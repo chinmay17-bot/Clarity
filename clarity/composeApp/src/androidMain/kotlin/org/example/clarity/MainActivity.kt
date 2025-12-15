@@ -25,8 +25,8 @@ class MainActivity : ComponentActivity() {
                 Scaffold { paddingValues ->
 //                    RegisterScreen(modifier = Modifier.padding(paddingValues))
 //                    LoginScreen(modifier = Modifier.padding(paddingValues))
-//                    NotesScreen(modifier = Modifier.padding(paddingValues))
-                    InputScreen(modifier = Modifier.padding(paddingValues))
+                    NotesScreen(modifier = Modifier.padding(paddingValues))
+//                    InputScreen(modifier = Modifier.padding(paddingValues))
                 }
 
             }
